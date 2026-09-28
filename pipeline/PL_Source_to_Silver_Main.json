@@ -100,7 +100,7 @@
 									{
 										"type": "Query",
 										"text": {
-											"value": "insert into ctrl.audit_log(adf_run_id,table_id,stage, statusstart_time) values (@{pipeline().parameters.adf_run_id},@{item().table_id},'SOURCE_TO_SILVER','In_PROGRESS',SYSUTCDATETIME())",
+											"value": "insert into ctrl.audit_log(adf_run_id,table_id,stage, statusstart_time) values ('@{pipeline().parameters.adf_run_id}',@{item().table_id},'SOURCE_TO_SILVER','In_PROGRESS',SYSUTCDATETIME())",
 											"type": "Expression"
 										}
 									}
@@ -136,7 +136,7 @@
 									{
 										"type": "Query",
 										"text": {
-											"value": "update ctrl.audit_log\nset status='Failed' , end_time=SYSUTCDATETIME()\nwhere adf_run_id=@{pipeline().parameters.adf_run_id} and table_id=@{item().table_id}",
+											"value": "update ctrl.audit_log\nset status='Failed' , end_time=SYSUTCDATETIME()\nwhere adf_run_id='@{pipeline().parameters.adf_run_id}' and table_id=@{item().table_id}",
 											"type": "Expression"
 										}
 									}
