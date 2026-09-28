@@ -1,6 +1,11 @@
 {
 	"name": "PL_soure_to_silver_child",
 	"properties": {
+		"parameters": {
+			"table_id": {
+				"type": "string"
+			}
+		},
 		"annotations": []
 	}
 }
