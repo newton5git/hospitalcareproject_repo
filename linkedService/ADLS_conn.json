@@ -1,0 +1,10 @@
+{
+	"name": "ADLS_conn",
+	"properties": {
+		"annotations": [],
+		"type": "AzureBlobFS",
+		"typeProperties": {
+			"url": "https://carestorageacct.dfs.core.windows.net/"
+		}
+	}
+}
