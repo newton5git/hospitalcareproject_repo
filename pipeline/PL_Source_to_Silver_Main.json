@@ -27,7 +27,8 @@
 					"dataset": {
 						"referenceName": "DS_SQL_DB",
 						"type": "DatasetReference"
-					}
+					},
+					"firstRowOnly": false
 				}
 			}
 		],
