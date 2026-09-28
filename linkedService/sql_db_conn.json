@@ -1,0 +1,23 @@
+{
+	"name": "sql_db_conn",
+	"properties": {
+		"annotations": [],
+		"type": "AzureSqlDatabase",
+		"typeProperties": {
+			"server": "careproj-sqlserver.database.windows.net",
+			"database": "sql-db-careproj",
+			"encrypt": "mandatory",
+			"trustServerCertificate": false,
+			"authenticationType": "SQL",
+			"userName": "Datanewton",
+			"password": {
+				"type": "AzureKeyVaultSecret",
+				"store": {
+					"referenceName": "azure_key_vault_conn",
+					"type": "LinkedServiceReference"
+				},
+				"secretName": "azuresql-db-secret"
+			}
+		}
+	}
+}
