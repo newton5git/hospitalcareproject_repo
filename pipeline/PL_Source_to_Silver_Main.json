@@ -51,7 +51,7 @@
 					"isSequential": true,
 					"activities": [
 						{
-							"name": "test",
+							"name": "Get Table_Id",
 							"type": "SetVariable",
 							"dependsOn": [],
 							"policy": {
