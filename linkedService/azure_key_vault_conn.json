@@ -1,0 +1,10 @@
+{
+	"name": "azure_key_vault_conn",
+	"properties": {
+		"annotations": [],
+		"type": "AzureKeyVault",
+		"typeProperties": {
+			"baseUrl": "https://care-key-vault.vault.azure.net/"
+		}
+	}
+}
