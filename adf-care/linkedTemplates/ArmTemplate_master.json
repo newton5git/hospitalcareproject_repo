@@ -1,0 +1,105 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "adf-care"
+		},
+		"ADLS_conn_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://carestorageacct.dfs.core.windows.net/"
+		},
+		"azure_key_vault_conn_properties_typeProperties_baseUrl": {
+			"type": "string",
+			"defaultValue": "https://care-key-vault.vault.azure.net/"
+		},
+		"databricks_conn_properties_typeProperties_existingClusterId": {
+			"type": "string",
+			"defaultValue": "0928-212548-6eg8dyn0"
+		},
+		"postgress_conn_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "ep-aged-breeze-b4ekgykg-pooler.c-6.us-east-2.aws.neon.tech"
+		},
+		"postgress_conn_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "neondb"
+		},
+		"postgress_conn_properties_typeProperties_username": {
+			"type": "string",
+			"defaultValue": "neondb_owner"
+		},
+		"sql_db_conn_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "careproj-sqlserver.database.windows.net"
+		},
+		"sql_db_conn_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "sql-db-careproj"
+		},
+		"sql_db_conn_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "Datanewton"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "adf-care_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"ADLS_conn_properties_typeProperties_url": {
+						"value": "[parameters('ADLS_conn_properties_typeProperties_url')]"
+					},
+					"azure_key_vault_conn_properties_typeProperties_baseUrl": {
+						"value": "[parameters('azure_key_vault_conn_properties_typeProperties_baseUrl')]"
+					},
+					"databricks_conn_properties_typeProperties_existingClusterId": {
+						"value": "[parameters('databricks_conn_properties_typeProperties_existingClusterId')]"
+					},
+					"postgress_conn_properties_typeProperties_server": {
+						"value": "[parameters('postgress_conn_properties_typeProperties_server')]"
+					},
+					"postgress_conn_properties_typeProperties_database": {
+						"value": "[parameters('postgress_conn_properties_typeProperties_database')]"
+					},
+					"postgress_conn_properties_typeProperties_username": {
+						"value": "[parameters('postgress_conn_properties_typeProperties_username')]"
+					},
+					"sql_db_conn_properties_typeProperties_server": {
+						"value": "[parameters('sql_db_conn_properties_typeProperties_server')]"
+					},
+					"sql_db_conn_properties_typeProperties_database": {
+						"value": "[parameters('sql_db_conn_properties_typeProperties_database')]"
+					},
+					"sql_db_conn_properties_typeProperties_userName": {
+						"value": "[parameters('sql_db_conn_properties_typeProperties_userName')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}

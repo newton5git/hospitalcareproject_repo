@@ -1,0 +1,42 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "adf-care"
+		},
+		"ADLS_conn_properties_typeProperties_url": {
+			"value": "https://carestorageacct.dfs.core.windows.net/"
+		},
+		"azure_key_vault_conn_properties_typeProperties_baseUrl": {
+			"value": "https://care-key-vault.vault.azure.net/"
+		},
+		"databricks_conn_properties_typeProperties_existingClusterId": {
+			"value": "0928-212548-6eg8dyn0"
+		},
+		"postgress_conn_properties_typeProperties_server": {
+			"value": "ep-aged-breeze-b4ekgykg-pooler.c-6.us-east-2.aws.neon.tech"
+		},
+		"postgress_conn_properties_typeProperties_database": {
+			"value": "neondb"
+		},
+		"postgress_conn_properties_typeProperties_username": {
+			"value": "neondb_owner"
+		},
+		"sql_db_conn_properties_typeProperties_server": {
+			"value": "careproj-sqlserver.database.windows.net"
+		},
+		"sql_db_conn_properties_typeProperties_database": {
+			"value": "sql-db-careproj"
+		},
+		"sql_db_conn_properties_typeProperties_userName": {
+			"value": "Datanewton"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
