@@ -51,7 +51,14 @@
 			{
 				"name": "Landing to Bronze",
 				"type": "DatabricksNotebook",
-				"dependsOn": [],
+				"dependsOn": [
+					{
+						"activity": "Switch1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
 				"policy": {
 					"timeout": "0.12:00:00",
 					"retry": 0,
@@ -73,6 +80,10 @@
 						},
 						"landing_timestamp": {
 							"value": "@variables('start_time')",
+							"type": "Expression"
+						},
+						"source_file_format": {
+							"value": "@coalesce(activity('Read table details').output.firstRow.source_file_format,'')",
 							"type": "Expression"
 						}
 					}
